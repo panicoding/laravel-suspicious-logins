@@ -1,0 +1,42 @@
+{
+  "name": "adventdevinc/laravel-suspicious-logins",
+  "description": "Laravel plugin to track your users logins and alert when a suspicious login occurs",
+  "keywords": [
+    "laravel",
+    "auth",
+    "authorization",
+    "login",
+    "suspicious"
+  ],
+  "type": "library",
+  "homepage": "https://github.com/adventdevinc/laravel-suspicious-logins",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Dave Blakey",
+      "email": "dave@blakey.co"
+    }
+  ],
+  "require": {
+    "torann/geoip": "^3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "AdventDev\\SuspiciousLogins\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AdventDev\\SuspiciousLogins\\Tests\\": "tests"
+    }
+  },
+  "require-dev": {
+  },
+  "extra": {
+    "laravel": {
+        "providers": [
+            "AdventDev\\SuspiciousLogins\\SuspiciousLoginsServiceProvider"
+        ]
+    }
+  }
+}
