@@ -6,7 +6,8 @@
         "auth",
         "authorization",
         "login",
-        "suspicious"
+        "suspicious",
+        "laravel-package"
     ],
     "type": "library",
     "homepage": "https://github.com/adventdevinc/laravel-suspicious-logins",
