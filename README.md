@@ -1,5 +1,10 @@
 # Laravel Suspicious Logins
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/adventdevinc/laravel-suspicious-logins.svg?style=flat-square)](https://packagist.org/packages/adventdevinc/laravel-suspicious-logins)
+[![Total Downloads](https://img.shields.io/packagist/dt/adventdevinc/laravel-suspicious-logins.svg?style=flat-square)](https://packagist.org/packages/adventdevinc/laravel-suspicious-logins)
+
+---
+
 Detect suspicious logins for standard Laravel authentication (base Laravel, Jetstream, etc) and notify a list 
 of administrators and/or the user of the login. 
 
