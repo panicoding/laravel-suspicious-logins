@@ -17,12 +17,12 @@ class EvaluateLogin
             // @TODO add bot detection here
 
             // Same city is safe
-            if (config('suspicious-logins.safe.city') && $login->geoip_city === $current->geoip_city) {
+            if (config('suspicious-logins.safe.city', true) && $login->geoip_city === $current->geoip_city) {
                 return true;
             }
 
             // Same country is safe
-            if (config('suspicious-logins.safe.country') && $login->geoip_country === $current->geoip_country) {
+            if (config('suspicious-logins.safe.country', false) && $login->geoip_country === $current->geoip_country) {
                 return true;
             }
         }
