@@ -3,6 +3,7 @@
 namespace AdventDev\SuspiciousLogins;
 
 use AdventDev\SuspiciousLogins\Console\Commands\LookupIPAddress;
+use AdventDev\SuspiciousLogins\Console\Commands\PruneLoginAttempts;
 use Illuminate\Support\ServiceProvider;
 use AdventDev\SuspiciousLogins\Console\Commands\ClearLoginAttempts;
 
@@ -19,6 +20,7 @@ class SuspiciousLoginsServiceProvider extends ServiceProvider
             $this->commands([
                 ClearLoginAttempts::class,
                 LookupIPAddress::class,
+                PruneLoginAttempts::class,
             ]);
         }
     }
