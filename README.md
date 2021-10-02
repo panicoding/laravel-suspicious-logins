@@ -26,11 +26,12 @@ php artisan vendor:publish --provider="AdventDev\SuspiciousLogins\SuspiciousLogi
 
 ## Use
 
-Add the ```AdventDev\SuspiciousLogins\Listeners\AuthEventSubscriber``` to the ```$subscribe``` variable in the ```app/Providers/EventServiceProvider.php``` file.
+Add ```\AdventDev\SuspiciousLogins\Listeners\AuthEventSubscriber::class,``` to the ```$subscribe``` variable in the ```app/Providers/EventServiceProvider.php``` file. 
+If it does not exist just add the code below.
 
 ```php
 protected $subscribe = [
-    'AdventDev\SuspiciousLogins\Listeners\AuthEventSubscriber',
+    \AdventDev\SuspiciousLogins\Listeners\AuthEventSubscriber::class,
 ];
 ```
 
