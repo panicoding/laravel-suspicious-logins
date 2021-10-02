@@ -3,6 +3,9 @@
 Detect suspicious logins for standard Laravel authentication (base Laravel, Jetstream, etc) and notify a list 
 of administrators and/or the user of the login. 
 
+## Example Email
+<img src="https://raw.githubusercontent.com/AdventDevInc/laravel-suspicious-logins/main/docs/example-email.png" alt="Example Email" />
+
 ## Install
 
 via composer
