@@ -49,7 +49,7 @@ Depending on your config file it will now email you, and/or your users when a su
 account. By default that is a login from another city than they have recently logged in from.
 
 
-### Commands
+## Commands
 
 Clear all login attempts in the database
 ```bash
@@ -65,6 +65,21 @@ Prune any logins older than 30 days. We advise you add this to a daily schedule.
 ```bash
 php artisan suspicious-logins:prune
 ```
+
+
+## Reputation Service
+This package includes support for a central IP reputation service that uses OSINT and machine learning to 
+predict suspicious logins. 
+
+By default, it is disabled but can be enabled by changing ```reputation.enabled``` to be true. Opting in to 
+this service will check logins against the database by querying only the IP address logging in, and 
+will submit actual logins and their status (failed or success) with the IP to the service 
+to help train it.
+
+Learn more at [https://reputation.advent.dev](https://reputation.advent.dev).
+
+NOTE: This is completely optional to use, if you disable it country, distance and city 
+checking will still work!
 
 ## Changelog
 
