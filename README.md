@@ -1,6 +1,6 @@
 # Laravel Suspicious Logins
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/adventdevinc/laravel-suspicious-logins.svg?style=flat-square)](https://packagist.org/packages/dbfx/laravel-strapi)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/adventdevinc/laravel-suspicious-logins.svg?style=flat-square)](https://packagist.org/packages/adventdevinc/laravel-suspicious-logins)
 [![Total Downloads](https://img.shields.io/packagist/dt/adventdevinc/laravel-suspicious-logins)](https://packagist.org/packages/adventdevinc/laravel-suspicious-logins)
 ![License](https://img.shields.io/github/license/adventdevinc/laravel-suspicious-logins)
 
@@ -62,7 +62,7 @@ Test a GeoIP lookup and Advent Reputation response for {ip}
 php artisan suspicious-logins:lookup {ip}
 ```
 
-Prune any logins older than 30 days. We advise you add this to a daily schedule.
+Prune any logins older than 30 days. We automatically add this to your daily schedule.
 ```bash
 php artisan suspicious-logins:prune
 ```
