@@ -4,6 +4,7 @@ namespace AdventDev\SuspiciousLogins;
 
 use AdventDev\SuspiciousLogins\Console\Commands\LookupIPAddress;
 use AdventDev\SuspiciousLogins\Console\Commands\PruneLoginAttempts;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ServiceProvider;
 use AdventDev\SuspiciousLogins\Console\Commands\ClearLoginAttempts;
 
@@ -12,6 +13,10 @@ class SuspiciousLoginsServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerFiles();
+
+        $this->app->afterResolving(Schedule::class, function (Schedule $schedule) {
+            $schedule->command(PruneLoginAttempts::class)->daily();
+        });
     }
 
     public function register()
