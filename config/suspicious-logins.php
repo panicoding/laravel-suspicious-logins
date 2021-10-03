@@ -49,8 +49,9 @@ return [
      * By enabling it you will also submit IP address login attempts from your
      * system (only the IP and if it succeeded or failed, no other information)
      *
-     * riskLevelToAlert can be 1, 2, or 3. We recommend 3 as a default, but you
-     * can lower this to be more aggressive on alerts.
+     * riskLevelToAlert can be 1, 2, or 3. We recommend 2 as a default, but you
+     * can change it to 1 to be more likely to find an IP suspicious or 3 to
+     * be less likely.
      */
     'reputation' => [
         'enabled' => false,

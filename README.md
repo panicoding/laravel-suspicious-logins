@@ -57,7 +57,7 @@ Clear all login attempts in the database
 php artisan suspicious-logins:clear
 ```
 
-Test a GeoIP lookup for {ip}
+Test a GeoIP lookup and Advent Reputation response for {ip} 
 ```bash
 php artisan suspicious-logins:lookup {ip}
 ```
