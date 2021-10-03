@@ -29,7 +29,6 @@ class SuspiciousLoginDetected extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        $ip = $this->ip;
         $email = $this->user->email;
         $location = $this->geoIp->city . ', ' . $this->geoIp->country;
 
@@ -37,7 +36,7 @@ class SuspiciousLoginDetected extends Notification implements ShouldQueue
             ->subject('Suspicious Login Detected')
             ->greeting('Suspicious Login Alert')
             ->line('Your account (' . $email . ') recently logged in from an unrecognized location.')
-            ->line('The logged in IP address was ' . $ip . ' from ' . $location . '.')
+            ->line('The logged in IP address was ' . $this->ip . ' from ' . $location . '.')
             ->line('If this was you, you can ignore this message. If not, please reset your account password ASAP.');
     }
 

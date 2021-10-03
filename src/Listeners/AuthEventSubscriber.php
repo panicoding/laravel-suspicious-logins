@@ -5,7 +5,10 @@ namespace AdventDev\SuspiciousLogins\Listeners;
 use AdventDev\SuspiciousLogins\EvaluateLogin;
 use AdventDev\SuspiciousLogins\Models\LoginAttempt;
 use AdventDev\SuspiciousLogins\Notifications\SuspiciousLoginDetected;
+use AdventDev\SuspiciousLogins\Reputation\Api;
+use AdventDev\SuspiciousLogins\Reputation\Exceptions\FailedToCheck;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use Notification;
 use Torann\GeoIP\Facades\GeoIP;
 
@@ -46,7 +49,27 @@ class AuthEventSubscriber
             return;
         }
 
+        // Standard checks
         $safe = EvaluateLogin::success($current, $recentLogins);
+
+        // Reputation checks
+        if (config('suspicious-logins.reputation.enabled', false)) {
+            try {
+                $api = new Api(request()->ip());
+                $check = $api->check();
+
+                // We don't believe this is a safe request, alert the user
+                if ($check['risk'] >= config('suspicious-logins.reputation.riskLevelToAlert')) {
+                    $safe = false;
+                }
+
+                // If reputations are used submit the success
+                $api->success();
+            } catch (FailedToCheck $ex) {
+                // If we can't communicate we continue on as if its disabled
+                Log::error('Failed to check with Advent Reputation for IP ' . $current->ip);
+            }
+        }
 
         if (!$safe) {
             // Tell admins about it
@@ -93,6 +116,12 @@ class AuthEventSubscriber
             'geoip_lat' => $geoIp->lat,
             'geoip_lon' => $geoIp->lon,
         ]);
+
+        // If reputations are used submit the failure
+        if (config('suspicious-logins.reputation.enabled', false)) {
+            $api = new Api(request()->ip());
+            $api->fail();
+        }
     }
 
     public function subscribe($events)

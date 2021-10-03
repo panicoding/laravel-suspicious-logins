@@ -37,4 +37,23 @@ return [
         'city' => true,
         'country' => false,
     ],
+
+    /**
+     * Opt-in to using the Advent Reputation service at https://reputation.advent.dev by
+     * changing 'enabled' to true.
+     *
+     * This provides a central API for detecting suspicious logins based
+     * on IP address reputation where your users can be alerted of
+     * suspicious logins even if they are in the same city.
+     *
+     * By enabling it you will also submit IP address login attempts from your
+     * system (only the IP and if it succeeded or failed, no other information)
+     *
+     * riskLevelToAlert can be 1, 2, or 3. We recommend 3 as a default, but you
+     * can lower this to be more aggressive on alerts.
+     */
+    'reputation' => [
+        'enabled' => false,
+        'riskLevelToAlert' => 3,
+    ],
 ];
