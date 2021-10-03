@@ -24,7 +24,7 @@ class Api
         try {
             $ip = $this->ip;
             return Cache::remember($this->cacheKey . '.' . md5($this->ip), $this->cacheTime, function() use ($ip) {
-                return Http::acceptJson()->get($this->url . '/check/' . $ip)->json();
+                return Http::acceptJson()->timeout(5)->get($this->url . '/check/' . $ip)->json();
             });
         } catch (\Exception $ex) {
             throw new FailedToCheck($ex->getMessage());
@@ -34,7 +34,7 @@ class Api
     public function success()
     {
         try {
-            Http::acceptJson()->post($this->url . '/submit', [
+            Http::acceptJson()->timeout(5)->post($this->url . '/submit', [
                 'ip' => $this->ip,
                 'action' => 'success',
             ]);
@@ -46,7 +46,7 @@ class Api
     public function fail()
     {
         try {
-            Http::acceptJson()->post($this->url . '/submit', [
+            Http::acceptJson()->timeout(5)->post($this->url . '/submit', [
                 'ip' => $this->ip,
                 'action' => 'fail',
             ]);
