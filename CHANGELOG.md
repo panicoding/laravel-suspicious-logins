@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1 - 2021-10-03
+
+- Adds support for seeing Advent Reputation responses in the test script
+
 ## 1.1.0 - 2021-10-03
 
 - Adds support for distance (long, lat) checking for suspicious IPs
