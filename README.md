@@ -62,7 +62,7 @@ Test a GeoIP lookup for {ip}
 php artisan suspicious-logins:lookup {ip}
 ```
 
-Prune any logins older than 30 days. We advise you add this to a daily schedule.
+Prune any logins older than 30 days. We automatically add this to your daily schedule.
 ```bash
 php artisan suspicious-logins:prune
 ```
