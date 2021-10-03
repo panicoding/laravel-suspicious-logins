@@ -2,6 +2,7 @@
 
 namespace AdventDev\SuspiciousLogins;
 
+use AdventDev\SuspiciousLogins\Console\Commands\IPAddressHistory;
 use AdventDev\SuspiciousLogins\Console\Commands\LookupIPAddress;
 use AdventDev\SuspiciousLogins\Console\Commands\PruneLoginAttempts;
 use Illuminate\Console\Scheduling\Schedule;
@@ -26,6 +27,7 @@ class SuspiciousLoginsServiceProvider extends ServiceProvider
                 ClearLoginAttempts::class,
                 LookupIPAddress::class,
                 PruneLoginAttempts::class,
+                IPAddressHistory::class
             ]);
         }
     }

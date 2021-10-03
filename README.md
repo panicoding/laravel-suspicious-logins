@@ -31,6 +31,7 @@ preferences.
 
 ```bash
 php artisan vendor:publish --provider="AdventDev\SuspiciousLogins\SuspiciousLoginsServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Torann\GeoIP\GeoIPServiceProvider" --tag="config"
 ```
 
 ## Use

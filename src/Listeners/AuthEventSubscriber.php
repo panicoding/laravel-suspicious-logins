@@ -23,7 +23,6 @@ class AuthEventSubscriber
         $recentLogins = LoginAttempt::whereEvent(LoginAttempt::SUCCEEDED)
             ->whereUserId($event->user->id)
             ->whereEmail($event->user[config('suspicious-logins.email_column')])
-            ->whereIp(request()->ip())
             ->orderByDesc('created_at')
             ->where('created_at', '>', Carbon::now()->subMonth())
             ->get();

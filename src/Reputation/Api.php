@@ -5,6 +5,7 @@ namespace AdventDev\SuspiciousLogins\Reputation;
 use AdventDev\SuspiciousLogins\Reputation\Exceptions\FailedToCheck;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class Api
 {
@@ -32,17 +33,25 @@ class Api
 
     public function success()
     {
-        Http::acceptJson()->async()->post($this->url . '/submit', [
-            'ip' => $this->ip,
-            'action' => 'success',
-        ]);
+        try {
+            Http::acceptJson()->post($this->url . '/submit', [
+                'ip' => $this->ip,
+                'action' => 'success',
+            ]);
+        } catch (\Exception $ex) {
+            Log::error('Could not submit success to reputation service: ' . $ex->getMessage());
+        }
     }
 
     public function fail()
     {
-        Http::acceptJson()->async()->post($this->url . '/submit', [
-            'ip' => $this->ip,
-            'action' => 'fail',
-        ]);
+        try {
+            Http::acceptJson()->post($this->url . '/submit', [
+                'ip' => $this->ip,
+                'action' => 'fail',
+            ]);
+        } catch (\Exception $ex) {
+            Log::error('Could not submit success to reputation service: ' . $ex->getMessage());
+        }
     }
 }

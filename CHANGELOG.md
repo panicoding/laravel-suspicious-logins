@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.2 - 2021-10-03
+
+- Fix bug with recent login IP lookup
+- Add command suspicious-logins:history to lookup recent logins for an IP
+
 ## 1.1.1 - 2021-10-03
 
 - Adds support for seeing Advent Reputation responses in the test script
