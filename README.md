@@ -1,3 +1,5 @@
+<p align="center"><img src="/docs/social.png" alt="Laravel Suspicious Logins"></p>
+
 # Laravel Suspicious Logins
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/adventdevinc/laravel-suspicious-logins.svg?style=flat-square)](https://packagist.org/packages/adventdevinc/laravel-suspicious-logins)
@@ -7,10 +9,9 @@
 ---
 
 Detect suspicious logins for standard Laravel authentication (base Laravel, Jetstream, etc) and notify a list 
-of administrators and/or the user of the login. 
+of administrators and/or the user of the login automaticall via email. 
 
-## Example Email
-<img src="https://raw.githubusercontent.com/AdventDevInc/laravel-suspicious-logins/main/docs/example-email.png" alt="Example Email" />
+Also provides (optional) integration with Advent Reputation for checking the reputation of IP addresses.
 
 ## Install
 
@@ -49,6 +50,12 @@ Make sure to update config/suspicious-logins.php with your preferences.
 
 Depending on your config file it will now email you, and/or your users when a suspicious login occurs on their
 account. By default that is a login from another city than they have recently logged in from.
+
+
+
+## Example Email
+<img src="/docs/example-email.png" alt="Example Email">
+
 
 
 ## Commands
