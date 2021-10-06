@@ -16,7 +16,7 @@ class PruneLoginAttempts extends Command
     {
         $this->info('Pruning old records...');
 
-        LoginAttempt::where('created_at', '>', Carbon::now()->subMonth())->delete();
+        LoginAttempt::where('created_at', '<', Carbon::now()->subMonth())->delete();
 
         $this->info('Completed.');
     }
