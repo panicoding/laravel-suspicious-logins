@@ -9,7 +9,7 @@
 ---
 
 Detect suspicious logins for standard Laravel authentication (base Laravel, Jetstream, etc) and notify a list 
-of administrators and/or the user of the login automaticall via email. 
+of administrators and/or the user of the login automatically via email. 
 
 Also provides (optional) integration with Advent Reputation for checking the reputation of IP addresses.
 
