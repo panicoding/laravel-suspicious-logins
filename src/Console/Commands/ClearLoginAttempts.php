@@ -15,7 +15,7 @@ class ClearLoginAttempts extends Command
     {
         $this->info('Deleting LoginAttempt History...');
 
-        LoginAttempt::delete();
+        LoginAttempt::truncate();
 
         $this->info('Completed.');
     }
